@@ -62,7 +62,7 @@ function generate() {
     var mitinori = 0
 
     // スタート地点
-    var beginID = Math.floor(Math.random() * datasize);
+    var beginID = Math.floor(Math.random() * datasize) + 1;
     path.push(beginID);
 
     // 到達管理
