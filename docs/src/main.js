@@ -21,6 +21,7 @@ function draw(path = []) {
     if (path.length > 0) {
         //新しいパスを開始する
         context.beginPath();
+        context.strokeRect(data[path[0]].x - 15,data[path[0]].y - 15,30,30)
         //パスの開始座標を指定する
         context.moveTo(data[path[0]].x, data[path[0]].y);
         //座標を指定してラインを引いていく
@@ -28,6 +29,8 @@ function draw(path = []) {
             context.lineTo(data[path[i]].x, data[path[i]].y);
             context.lineWidth = 10;
         }
+
+        context.fillRect(data[path[path.length-1]].x - 15,data[path[path.length-1]].y - 15,30,30)
 
         //ラインの色を指定
         context.strokeStyle = '#ff69b4';
