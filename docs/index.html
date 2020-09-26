@@ -5,15 +5,15 @@
  <title>HU_walking_generator</title>
  <meta name="description" content="サイトキャプションを入力">
  <meta name="keywords" content="サイトキーワードを,で区切って入力">
- <link rel="stylesheet" href="sample.css">
+ <link rel="stylesheet" href="style.css">
  <!--[if lt IE 9]>
  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js%22%3E</script>
  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js%22%3E</script>
  <![endif]-->
- <script src="sample.js"></script>
+ <script src="src/main.js"></script>
  </head>
  
- <body>
+ <body onLoad="main()">
  <!----- ヘッダー ----->
  <header>ヘッダー</header>
  <nav>ナビ</nav>
@@ -25,6 +25,7 @@
  <section>
  <h2>タイトル</h2>
  <p>コンテンツの内容</p>
+ <canvas id="canvas" width="400" height="400"></canvas>
  </section>
  </article>
  <!----- メインコンテンツ END ----->
