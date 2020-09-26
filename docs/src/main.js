@@ -139,3 +139,21 @@ function assertData() {
         }
     }
 }
+
+function clickSelectBtn(){
+	const div = document.getElementById("target_distance_container");
+
+	if(div.style.display=="block"){
+		// noneで非表示
+		div.style.display ="none";
+	}else{
+		// blockで表示
+		div.style.display ="block";
+	}
+}
+// $("#select_target_button").click(function(){
+//     const str = $("#target").val();
+//     if(str == "target_distance"){
+//         $("#target_distance_container").toggle();
+//     }
+// });
