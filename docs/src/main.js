@@ -1,15 +1,9 @@
 var img01 = new Image();
 img01.src = "imgs/saijyo_ja_2019-1.png";
-var data = null;
+// var data = null;
 var datasize = 0;
 function main() {
-
-    $.getJSON("src/data.json", function (d) {
-        console.log(d)
-        data = d;
-        datasize = Object.keys(d).length;
-    });
-
+    datasize = Object.keys(data).length;
     document.getElementById("generate_button").onclick = function () {
         console.log("ジェネレート!")
         generate()
