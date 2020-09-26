@@ -60,25 +60,28 @@ function generate() {
     var prevID = beginID;
     var vertex = data[beginID];
     var next = vertex.adjacent;
-    while (next.length > 0) {
-        //次変数
-        const nextIndex = Math.floor(Math.random() * next.length);
-        const nextID = next[nextIndex];
-
-        //到達済みか
-        if (visited[nextID]) {
-            next = next.splice(nextIndex, 1);
-        } else {
-            //追加
-            path.push(nextID);
-            visited[nextID] = true;
-            mitinori += distanceBetween(prevID, nextID);
-
-            //次ループ準備
-            vertex = data[nextID];
-            next = vertex.adjacent;
-            prevID = nextID;
+    while (true) {
+        //行ける場所列挙
+        const nextable = []
+        for (var i = 0; i < next.length; i++) {
+            if (!visited[next[i]]) {
+                nextable.push(next[i])
+            }
         }
+        if (nextable.length == 0) break;
+
+        //次点
+        const nextID = nextable[Math.floor(Math.random() * nextable.length)];
+
+        //追加
+        path.push(nextID);
+        visited[nextID] = true;
+        mitinori += distanceBetween(prevID, nextID);
+
+        //次ループ準備
+        vertex = data[nextID];
+        next = vertex.adjacent;
+        prevID = nextID;
     }
 
     console.log(path)
