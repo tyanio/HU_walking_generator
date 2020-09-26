@@ -36,6 +36,13 @@ function draw(path = []) {
     }
 }
 
+//200m -> ピクセル
+const meter200toPixcel = 288
+//8000歩 -> メートル
+const po8000toMeter = 5760
+//10分 -> メートル
+const minutes10toMeter =  800
+
 function generate() {
     if (datasize == 0) {
         console.log("データを読み込めていません")
