@@ -11,8 +11,8 @@ function main() {
         //パスの開始座標を指定する
         context.moveTo(100, 20);
         //座標を指定してラインを引いていく
-        context.lineTo(150, 100);
-        context.lineTo(50, 100);
+        // context.lineTo(150, 100);
+        // context.lineTo(50, 100);
         //パスを閉じる（最後の座標から開始座標に向けてラインを引く）
         context.closePath();
         //現在のパスを輪郭表示する
