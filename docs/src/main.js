@@ -56,51 +56,65 @@ function generate() {
     }
 
     var targetMitinori = Infinity;
+    //const str = document.getElementById("target_distance").getElementsByTagName("p").getElementsByTagName("select");
+    //console.log(str)
 
-    // 結果格納変数
-    var path = []
-    var mitinori = 0
+    const kouho = [];
+    const sikou = ((!isFinite(targetMitinori)) ? 1 : 15);
+    for (var tamesi = 0; tamesi < sikou; tamesi++) {
+        // 結果格納変数
+        var path = []
+        var mitinori = 0
 
-    // スタート地点
-    var beginID = Math.floor(Math.random() * datasize) + 1;
-    path.push(beginID);
+        // スタート地点
+        var beginID = Math.floor(Math.random() * datasize) + 1;
+        path.push(beginID);
 
-    // 到達管理
-    var visited = {};
-    visited[beginID] = true;
+        // 到達管理
+        var visited = {};
+        visited[beginID] = true;
 
-    //ループ変数
-    var prevID = beginID;
-    var vertex = data[beginID];
-    var next = vertex.adjacent;
-    while (true) {
-        //行ける場所列挙
-        const nextable = []
-        for (var i = 0; i < next.length; i++) {
-            if (!visited[next[i]]) {
-                nextable.push(next[i])
+        //ループ変数
+        var prevID = beginID;
+        var vertex = data[beginID];
+        var next = vertex.adjacent;
+        while (true) {
+            //行ける場所列挙
+            const nextable = []
+            for (var i = 0; i < next.length; i++) {
+                if (!visited[next[i]]) {
+                    nextable.push(next[i])
+                }
             }
+            if (nextable.length == 0) break;
+
+            //次点
+            const nextID = nextable[Math.floor(Math.random() * nextable.length)];
+
+            //追加
+            path.push(nextID);
+            visited[nextID] = true;
+            mitinori += distanceBetween(prevID, nextID);
+            if (mitinori >= targetMitinori) break;
+
+            //次ループ準備
+            vertex = data[nextID];
+            next = vertex.adjacent;
+            prevID = nextID;
         }
-        if (nextable.length == 0) break;
 
-        //次点
-        const nextID = nextable[Math.floor(Math.random() * nextable.length)];
-
-        //追加
-        path.push(nextID);
-        visited[nextID] = true;
-        mitinori += distanceBetween(prevID, nextID);
-        if (mitinori >= targetMitinori) break;
-
-        //次ループ準備
-        vertex = data[nextID];
-        next = vertex.adjacent;
-        prevID = nextID;
+        path.mitinori = mitinori;
+        kouho.push(path)
     }
 
-    console.log(path)
-    path.mitinori = mitinori;
-    draw(path)
+    var bestpath = kouho[0];
+    for (var i = 1; i < kouho.length; i++) {
+        if (Math.abs(kouho[i].mitinori - targetMitinori) < Math.abs(bestpath.mitinori - targetMitinori)) {
+            bestpath = kouho[i];
+        }
+    }
+    console.log(bestpath)
+    draw(bestpath)
 }
 
 function distanceBetween(id1, id2) {
