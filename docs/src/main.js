@@ -1,5 +1,5 @@
 var img01 = new Image();
-img01.src = "imgs/saijyo_ja_2019-1.png";
+img01.src = "imgs/EPSON001.jpg";
 // var data = null;
 var datasize = 0;
 function main() {
