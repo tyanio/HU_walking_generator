@@ -44,7 +44,7 @@ const meter200toPixcel = 288
 //8000歩 -> メートル
 const po8000toMeter = 5760
 //10分 -> メートル
-const minutes10toMeter =  800
+const minutes10toMeter = 800
 
 function generate() {
     if (datasize == 0) {
@@ -100,4 +100,20 @@ function distanceBetween(id1, id2) {
     const v1 = data[id1]
     const v2 = data[id2]
     return Math.sqrt((v2.x - v1.x) * (v2.x - v1.x) + (v2.y - v1.y) * (v2.y - v1.y))
+}
+
+function assertData() {
+    for (var i = 1; i <= datasize; i++) {
+        const adjacent = data[i].adjacent;
+        for (var j = 0; j < adjacent.length; j++) {
+            var ok = 0;
+            const adjacentadjacent = data[adjacent[j]].adjacent;
+            for (var k = 0; k < adjacentadjacent.length; k++) {
+                if (adjacentadjacent[k] == i) ok++;
+            }
+            if (ok != 1) {
+                console.log("不正：" + i + " と " + adjacent[j] + " の間 "+ok)
+            }
+        }
+    }
 }
