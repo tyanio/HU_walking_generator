@@ -159,16 +159,21 @@ function clickSelectBtn() {
     const div1 = document.getElementById("target_distance_container");
     const div2 = document.getElementById("target_time_container");
     const div3 = document.getElementById("target_steps_container");
-    if(targeted){
+    if (targeted) {
         targeted = false;
         div1.style.display = "none";
         div2.style.display = "none";
         div3.style.display = "none";
-    }else{
+    } else {
         targeted = true;
-        div1.style.display = "block";
-        div2.style.display = "block";
-        div3.style.display = "block";
+        const targetElem = document.getElementById("target")
+        if (targetElem.value == "target_distance") {
+            div1.style.display = "block";
+        } else if (targetElem.value == "target_time") {
+            div2.style.display = "block";
+        } else if (targetElem.value == "target_steps") {
+            div3.style.display = "block";
+        }
     }
 
     // if (div.style.display == "block") {
