@@ -21,7 +21,7 @@ function draw(path = []) {
     if (path.length > 0) {
         //新しいパスを開始する
         context.beginPath();
-        context.strokeRect(data[path[0]].x - 15,data[path[0]].y - 15,30,30)
+        context.strokeRect(data[path[0]].x - 15, data[path[0]].y - 15, 30, 30)
         //パスの開始座標を指定する
         context.moveTo(data[path[0]].x, data[path[0]].y);
         //座標を指定してラインを引いていく
@@ -30,7 +30,7 @@ function draw(path = []) {
             context.lineWidth = 10;
         }
 
-        context.fillRect(data[path[path.length-1]].x - 15,data[path[path.length-1]].y - 15,30,30)
+        context.fillRect(data[path[path.length - 1]].x - 15, data[path[path.length - 1]].y - 15, 30, 30)
 
         //ラインの色を指定
         context.strokeStyle = '#ff69b4';
@@ -46,10 +46,16 @@ const po8000toMeter = 5760
 //10分 -> メートル
 const minutes10toMeter = 800
 
+function pixcelOfMeter(meter) { return meter * (meter200toPixcel / 200) };
+function pixcelOfMinutes(minutes) { return pixcelOfMeter(minutes * (minutes10toMeter / 10)) };
+function pixcelOfPo(po) { return pixcelOfMeter(po * (po8000toMeter / 8000)) };
+
 function generate() {
     if (datasize == 0) {
         console.log("データを読み込めていません")
     }
+
+    var targetMitinori = Infinity;
 
     // 結果格納変数
     var path = []
@@ -84,6 +90,7 @@ function generate() {
         path.push(nextID);
         visited[nextID] = true;
         mitinori += distanceBetween(prevID, nextID);
+        if (mitinori >= targetMitinori) break;
 
         //次ループ準備
         vertex = data[nextID];
@@ -112,7 +119,7 @@ function assertData() {
                 if (adjacentadjacent[k] == i) ok++;
             }
             if (ok != 1) {
-                console.log("不正：" + i + " と " + adjacent[j] + " の間 "+ok)
+                console.log("不正：" + i + " と " + adjacent[j] + " の間 " + ok)
             }
         }
     }
