@@ -5,13 +5,13 @@ var datasize = 0;
 function main() {
 
     $.getJSON("src/data.json", function (d) {
-        console.log(data)
+        console.log(d)
         data = d;
-        datasize = Object.keys.length;
+        datasize = Object.keys(d).length;
     });
 
     document.getElementById("generate_button").onclick = function() {
-        console.log("generate!")
+        console.log("ジェネレート!")
         generate()
     };
 
@@ -40,6 +40,10 @@ function draw(path = []) {
 }
 
 function generate() {
+    if(datasize == 0){
+        console.log("データを読み込めていません")
+    }
+
     // 結果格納変数
     var path = []
     var mitinori = 0
