@@ -156,16 +156,28 @@ function assertData() {
 
 var targeted = false;
 function clickSelectBtn() {
-    const div = document.getElementById("target_distance_container");
-    targeted = true;
-
-    if (div.style.display == "block") {
-        // noneで非表示
-        div.style.display = "none";
-    } else {
-        // blockで表示
-        div.style.display = "block";
+    const div1 = document.getElementById("target_distance_container");
+    const div2 = document.getElementById("target_time_container");
+    const div3 = document.getElementById("target_steps_container");
+    if(targeted){
+        targeted = false;
+        div1.style.display = "none";
+        div2.style.display = "none";
+        div3.style.display = "none";
+    }else{
+        targeted = true;
+        div1.style.display = "block";
+        div2.style.display = "block";
+        div3.style.display = "block";
     }
+
+    // if (div.style.display == "block") {
+    //     // noneで非表示
+    //     targeted = false;
+    // } else {
+    //     // blockで表示
+    //     targeted = true;
+    // }
 }
 // $("#select_target_button").click(function(){
 //     const str = $("#target").val();
