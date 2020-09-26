@@ -10,7 +10,7 @@ function main() {
         datasize = Object.keys(d).length;
     });
 
-    document.getElementById("generate_button").onclick = function() {
+    document.getElementById("generate_button").onclick = function () {
         console.log("ジェネレート!")
         generate()
     };
@@ -40,7 +40,7 @@ function draw(path = []) {
 }
 
 function generate() {
-    if(datasize == 0){
+    if (datasize == 0) {
         console.log("データを読み込めていません")
     }
 
@@ -72,11 +72,11 @@ function generate() {
             //追加
             path.push(nextID);
             visited[nextID] = true;
-            mitinori += distanceBetween(prevID,nextID);
+            mitinori += distanceBetween(prevID, nextID);
 
             //次ループ準備
-            next = vertex.adjacent;
             vertex = data[nextID];
+            next = vertex.adjacent;
             prevID = nextID;
         }
     }
