@@ -91,3 +91,8 @@ a.btn-flat:hover:before {
 }
 
 /*以上ボタン*/
+
+#detail_comment {
+  text-align: center;
+  font-weight: bold;
+}

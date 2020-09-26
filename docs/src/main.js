@@ -36,6 +36,7 @@ function draw(path = []) {
         context.strokeStyle = '#ff69b4';
 
         context.stroke();
+        $("#detail_comment").text("総行程 約"+Math.round(path.meter)+"m!")
     }
 }
 
