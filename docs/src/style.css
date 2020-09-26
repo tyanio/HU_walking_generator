@@ -11,7 +11,7 @@ body {
     text-align: center;
 }
 
-#target_distance {
+#target_distance_container {
     display: none;
     padding: 2em 0;
     text-align: center;
