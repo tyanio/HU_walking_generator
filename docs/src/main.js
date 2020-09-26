@@ -10,8 +10,14 @@ function main() {
         datasize = Object.keys.length;
     });
 
+    document.getElementById("generate_button").onclick = function() {
+        console.log("generate!")
+        generate()
+    };
+
     draw();
 }
+
 
 function draw(path = []) {
     var canvas = document.getElementById('canvas');
@@ -71,6 +77,7 @@ function generate() {
         }
     }
 
+    console.log(path)
     path.mitinori = mitinori;
     draw(path)
 }
