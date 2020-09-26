@@ -109,7 +109,7 @@ function assertData() {
                 if (adjacentadjacent[k] == i) ok++;
             }
             if (ok != 1) {
-                console.log("不正：" + i + " と " + j + " の間")
+                console.log("不正：" + i + " と " + adjacent[j] + " の間 "+ok)
             }
         }
     }
