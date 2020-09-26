@@ -49,6 +49,7 @@ const minutes10toMeter = 800
 function pixcelOfMeter(meter) { return meter * (meter200toPixcel / 200) };
 function pixcelOfMinutes(minutes) { return pixcelOfMeter(minutes * (minutes10toMeter / 10)) };
 function pixcelOfPo(po) { return pixcelOfMeter(po * (po8000toMeter / 8000)) };
+function meterOfPixcel(pixcel) { return pixcel * (200 / meter200toPixcel) };
 
 function generate() {
     if (datasize == 0) {
@@ -56,8 +57,6 @@ function generate() {
     }
 
     var targetMitinori = Infinity;
-    //const str = document.getElementById("target_distance").getElementsByTagName("p").getElementsByTagName("select");
-    //console.log(str)
 
     const kouho = [];
     const sikou = ((!isFinite(targetMitinori)) ? 1 : 15);
@@ -104,6 +103,7 @@ function generate() {
         }
 
         path.mitinori = mitinori;
+        path.meter = meterOfPixcel(mitinori)
         kouho.push(path)
     }
 
