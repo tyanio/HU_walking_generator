@@ -17,6 +17,18 @@ body {
     text-align: center;
 }
 
+#target_time_container {
+  display: none;
+  padding: 2em 0;
+  text-align: center;
+}
+
+#target_steps_container {
+  display: none;
+  padding: 2em 0;
+  text-align: center;
+}
+
 .button_container {
     text-align: center;
 }

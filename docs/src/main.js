@@ -36,7 +36,7 @@ function draw(path = []) {
         context.strokeStyle = '#ff69b4';
 
         context.stroke();
-        $("#detail_comment").text("総行程 約"+Math.round(path.meter)+"m!")
+        $("#detail_comment").text("総行程 約" + Math.round(path.meter) + "m!")
     }
 }
 
@@ -58,6 +58,20 @@ function generate() {
     }
 
     var targetMitinori = Infinity;
+    if (targeted) {
+        const targetElem = document.getElementById("target")
+        if (targetElem.value == "target_distance") {
+            const targetValue = document.getElementById("target_distance_value").value
+            targetMitinori = pixcelOfMeter(Number(targetValue));
+        } else if (targetElem.value == "target_time") {
+            const targetValue = document.getElementById("target_time_value").value
+            targetMitinori = pixcelOfMinutes(Number(targetValue));
+        } else if (targetElem.value == "target_steps") {
+            const targetValue = document.getElementById("target_steps_value").value
+            targetMitinori = pixcelOfPo(Number(targetValue));
+        }
+    }
+    console.log("目標 " + targetMitinori)
 
     const kouho = [];
     const sikou = ((!isFinite(targetMitinori)) ? 1 : 15);
@@ -140,16 +154,18 @@ function assertData() {
     }
 }
 
-function clickSelectBtn(){
-	const div = document.getElementById("target_distance_container");
+var targeted = false;
+function clickSelectBtn() {
+    const div = document.getElementById("target_distance_container");
+    targeted = true;
 
-	if(div.style.display=="block"){
-		// noneで非表示
-		div.style.display ="none";
-	}else{
-		// blockで表示
-		div.style.display ="block";
-	}
+    if (div.style.display == "block") {
+        // noneで非表示
+        div.style.display = "none";
+    } else {
+        // blockで表示
+        div.style.display = "block";
+    }
 }
 // $("#select_target_button").click(function(){
 //     const str = $("#target").val();
