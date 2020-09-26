@@ -1,5 +1,14 @@
+body {
+    font-size: 62.5%;
+}
+
 #canvas {
     width: 100%;
+}
+
+.target_distance {
+    padding: 2em 0;
+    text-align: center;
 }
 
 .button_container {
