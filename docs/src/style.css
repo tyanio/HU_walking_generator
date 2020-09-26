@@ -6,7 +6,13 @@ body {
     width: 100%;
 }
 
-.target_distance {
+#target_container {
+    padding: 2em 0;
+    text-align: center;
+}
+
+#target_distance {
+    display: none;
     padding: 2em 0;
     text-align: center;
 }

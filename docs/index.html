@@ -21,15 +21,27 @@
 
     <canvas id="canvas" width="2339" height="3289"></canvas>
 
-    <div class="target_distance">
-        <p>散歩したい距離を入力してください：<select>
-            <option value="400">400m</option>
-            <option value="800">800m</option>
-            <option value="1200">1200m</option>
-            <option value="1600">1600m</option>
-            <option value="2000">2000m</option>
-        </select></p>
-        
+    <div id="target_container">
+        <p>追加する条件を選んでください：
+            <select>
+                <option value="target_distance">距離</option>
+                <option value="target_time">時間</option>
+                <option value="target_steps">歩数</option>
+            </select>
+            <button id="select_target_button">PUSH！</button>
+        </p>
+    </div>
+
+    <div id="target_distance">
+        <p>散歩したい距離を入力してください：
+            <select>
+                <option value="400">400m</option>
+                <option value="800">800m</option>
+                <option value="1200">1200m</option>
+                <option value="1600">1600m</option>
+                <option value="2000">2000m</option>
+            </select>
+        </p>
     </div>
 
     <div class="button_container" id="generate_button">
