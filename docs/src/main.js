@@ -26,9 +26,12 @@ function draw(path = []) {
         //座標を指定してラインを引いていく
         for (var i = 1; i < path.length; i++) {
             context.lineTo(data[path[i]].x, data[path[i]].y);
+            context.lineWidth = 10;
         }
-        //パスを閉じる（最後の座標から開始座標に向けてラインを引く）
-        // context.closePath();
+
+        //ラインの色を指定
+        context.strokeStyle = '#ff69b4';
+
         context.stroke();
     }
 }
