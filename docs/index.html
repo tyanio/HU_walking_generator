@@ -17,9 +17,21 @@
 </head>
 
 <body onLoad="main()">
-    <!----- メインコンテンツ ----->
+    <h1>広大ウォーキングジェネレーター</h1>
+
     <canvas id="canvas" width="2339" height="3289"></canvas>
-    <!----- メインコンテンツ END ----->
+
+    <div class="target_distance">
+        <p>散歩したい距離を入力してください：<select>
+            <option value="400">400m</option>
+            <option value="800">800m</option>
+            <option value="1200">1200m</option>
+            <option value="1600">1600m</option>
+            <option value="2000">2000m</option>
+        </select></p>
+        
+    </div>
+
     <div class="button_container" id="generate_button">
         <a class="btn btn-flat"><span>PUSH！</span></a>
     </div>
